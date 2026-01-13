@@ -1,0 +1,30 @@
+const db = require('../database/db')
+
+function criarMissao(missao, callback) {
+    const {nome, tripulacao, nave, destino, status, duracao} = missao;
+
+    db.run(
+        `INSERT INTO missions (nome, tripulacao, nave, destino, status, duracao)
+        VALUES (?, ?, ?, ?, ?, ?)`,
+        [nome, tripulacao, nave, destino, status, duracao],
+        function (err) {
+            callback(err);
+        }
+    );
+}
+
+function getMissions(callback) {
+    db.all("SELECT * FROM missions", [], (err, rows) => {
+        callback(err, rows);
+    });
+}
+
+function getMissionById(id, callback) {
+    db.get("SELECT * FROM missions WHERE id = ?", [id], (err, row) => {
+        callback(err, row);
+    });
+}
+
+
+
+module.exports = { criarMissao, getMissions, getMissionById };
