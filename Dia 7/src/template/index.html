@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Missões Espaciais - CRUD</title>
+</head>
+<body>
+    <h1>Missões Espaciais</h1>
+
+    <!-- ===== LISTAR MISSÕES ===== -->
+    <section>
+        <h2>Lista de Missões</h2>
+        <ul id="lista-missoes"></ul>
+        <button onclick="carregarMissoes('http://localhost:3000/missions')">Atualizar Lista</button>
+    </section>
+
+    <hr>
+
+    <!-- ===== CRIAR MISSÃO ===== -->
+    <section>
+        <h2>Criar Nova Missão</h2>
+        <form id="form-criar-missao">
+            <input type="text" name="nome" placeholder="Nome" required>
+            <input type="text" name="tripulacao" placeholder="Tripulação" required>
+            <input type="text" name="nave" placeholder="Nave" required>
+            <input type="text" name="destino" placeholder="Destino" required>
+            <input type="text" name="status" placeholder="Status" required>
+            <input type="number" name="duracao" placeholder="Duração (dias)" required>
+            <button type="submit">Criar Missão</button>
+        </form>
+    </section>
+
+    <hr>
+
+    <!-- ===== ATUALIZAR MISSÃO ===== -->
+    <section>
+        <h2>Atualizar Missão</h2>
+        <form id="form-atualizar-missao">
+            <input type="number" name="id" placeholder="ID da Missão" required>
+            <input type="text" name="nome" placeholder="Nome">
+            <input type="text" name="tripulacao" placeholder="Tripulação">
+            <input type="text" name="nave" placeholder="Nave">
+            <input type="text" name="destino" placeholder="Destino">
+            <input type="text" name="status" placeholder="Status">
+            <input type="number" name="duracao" placeholder="Duração (dias)">
+            <button type="submit">Atualizar Missão</button>
+        </form>
+    </section>
+
+    <hr>
+
+    <!-- ===== DELETAR MISSÃO ===== -->
+    <section>
+        <h2>Deletar Missão</h2>
+        <form id="form-deletar-missao">
+            <input type="number" name="id" placeholder="ID da Missão" required>
+            <button type="submit">Deletar Missão</button>
+        </form>
+    </section>
+
+    <script src="apiClient.js"></script>
+</body>
+</html>
